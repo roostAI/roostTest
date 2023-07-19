@@ -35,6 +35,7 @@ public class BaseEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	private String test;
 
 	public Integer getId() {
 		return id;
@@ -42,6 +43,14 @@ public class BaseEntity implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public String getTest() {
+		return test;
+	}
+	
+	public void setTest(String test) {
+		this.test = test;
 	}
 
 	public boolean isNew() {

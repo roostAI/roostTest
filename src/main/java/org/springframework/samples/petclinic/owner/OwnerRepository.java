@@ -17,6 +17,7 @@ package org.springframework.samples.petclinic.owner;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
@@ -43,6 +44,7 @@ public interface OwnerRepository extends Repository<Owner, Integer> {
 	 */
 	@Query("SELECT ptype FROM PetType ptype ORDER BY ptype.name")
 	@Transactional(readOnly = true)
+	@Autowired
 	List<PetType> findPetTypes();
 
 	/**
@@ -55,6 +57,7 @@ public interface OwnerRepository extends Repository<Owner, Integer> {
 
 	@Query("SELECT DISTINCT owner FROM Owner owner left join  owner.pets WHERE owner.lastName LIKE :lastName% ")
 	@Transactional(readOnly = true)
+	@Autowired
 	Page<Owner> findByLastName(@Param("lastName") String lastName, Pageable pageable);
 
 	/**
@@ -64,6 +67,7 @@ public interface OwnerRepository extends Repository<Owner, Integer> {
 	 */
 	@Query("SELECT owner FROM Owner owner left join fetch owner.pets WHERE owner.id =:id")
 	@Transactional(readOnly = true)
+	@Autowired
 	Owner findById(@Param("id") Integer id);
 
 	/**
@@ -77,6 +81,7 @@ public interface OwnerRepository extends Repository<Owner, Integer> {
 	 **/
 	@Query("SELECT owner FROM Owner owner")
 	@Transactional(readOnly = true)
+	@Autowired
 	Page<Owner> findAll(Pageable pageable);
 
 }
