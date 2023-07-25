@@ -1,0 +1,16 @@
+<build>
+    <plugins>
+        <plugin>
+            <groupId>io.spring.javaformat</groupId>
+            <artifactId>spring-javaformat-maven-plugin</artifactId>
+            <version>0.0.27</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>apply</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
