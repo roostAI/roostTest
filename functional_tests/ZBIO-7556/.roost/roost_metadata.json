@@ -1,0 +1,19 @@
+{
+  "project": {
+    "name": "ZBIO-7556",
+    "created_at": "2025-12-10T12:43:19.610Z",
+    "updated_at": "2025-12-10T12:43:19.610Z"
+  },
+  "files": {
+    "input_files": [
+      {
+        "fileName": "ZBIO-7556.txt",
+        "fileURI": "/var/tmp/Roost/RoostGPT/hebrew-dec10/631a5fd2-9d45-4abb-849e-f706172a6a1c/functional_tests/ZBIO-7556/ZBIO-7556.txt",
+        "fileSha": "b0650ff01f"
+      }
+    ]
+  },
+  "api_files": {
+    "input_files": []
+  }
+}
