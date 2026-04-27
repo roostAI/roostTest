@@ -1,0 +1,155 @@
+{
+  "site_type": "service",
+  "site_category": "Mortgage application and information portal",
+  "confidence_score": 0.95,
+  "user_journeys": [
+    {
+      "journey_name": "Primary Business Workflow",
+      "description": "Main user flow for starting a mortgage application",
+      "business_value": "Enables users to initiate the mortgage process online",
+      "user_persona": "Prospective homebuyer seeking a mortgage",
+      "frequency": "daily",
+      "complexity": "medium"
+    }
+  ],
+  "proposed_scenarios": [
+    {
+      "scenario_name": "Discovered Workflow: Mortgage Initiation -- Partial",
+      "description": "Covers the initial steps of starting the mortgage workflow, up to the point where a hard blocker prevented further progress.",
+      "workflow_narrative": "A prospective homebuyer visits the Leumi Mortgage portal, attempts to begin the mortgage process by clicking the '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' (Let's Start) link, encounters an issue, retries the initiation, but is ultimately blocked from proceeding further.",
+      "playwright_implementation_guidance": [
+        "Use waitForSelector to ensure the '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' link is visible before clicking.",
+        "Validate navigation by asserting the expected URL after each click.",
+        "Handle potential navigation retries gracefully if the workflow does not proceed as expected."
+      ],
+      "test_type": "partial_flow",
+      "priority": "high",
+      "business_goal": "Verify that users can initiate the mortgage workflow and handle workflow initiation failures gracefully.",
+      "user_story": "As a prospective homebuyer, I want to start the mortgage application process so that I can begin applying for a mortgage online.",
+      "detailed_steps": [
+        {
+          "step_number": 1,
+          "action": "Navigate to homepage",
+          "component": "Navigation",
+          "description": "Load homepage",
+          "expected_page_url": "https://www.mortgage.leumi.co.il",
+          "verification_point": "Page loaded",
+          "business_impact": "Site accessibility",
+          "selector": "page.goto('https://www.mortgage.leumi.co.il', { waitUntil: 'domcontentloaded' })",
+          "confidence": 100,
+          "based_on_interaction": true,
+          "all_selectors": []
+        },
+        {
+          "step_number": 2,
+          "action": "Click",
+          "component": "Link",
+          "description": "Click the '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' (Let's Start) link to begin the mortgage workflow.",
+          "expected_page_url": "https://www.mortgage.leumi.co.il/",
+          "verification_point": "Workflow initiation link clicked",
+          "business_impact": "Workflow progress",
+          "selector": "page.getByRole('link', { name: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('link', { name: /\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc/ })",
+              "strategy": "role_name_regex",
+              "confidence": 95,
+              "is_unique": false
+            },
+            {
+              "selector": "page.locator('[class*=\"Menu\"]').getByRole('link', { name: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' })",
+              "strategy": "portal_role_name",
+              "confidence": 92,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": null,
+          "page_context": {
+            "suggested_page_class": "HomePage",
+            "page_url_pattern": "/"
+          },
+          "method_context": {
+            "suggested_method_name": "clickStartWorkflowLink",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 3,
+          "action": "Navigate to homepage (retry)",
+          "component": "Navigation",
+          "description": "Return to the homepage to retry workflow initiation.",
+          "expected_page_url": "https://www.mortgage.leumi.co.il",
+          "verification_point": "Page reloaded",
+          "business_impact": "Workflow recovery",
+          "selector": "page.goto('https://www.mortgage.leumi.co.il', { waitUntil: 'domcontentloaded' })",
+          "confidence": 100,
+          "based_on_interaction": true,
+          "all_selectors": []
+        },
+        {
+          "step_number": 4,
+          "action": "Click",
+          "component": "Link",
+          "description": "Click the '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' (Let's Start) link again to retry starting the mortgage workflow.",
+          "expected_page_url": "https://www.mortgage.leumi.co.il/",
+          "verification_point": "Workflow initiation link clicked (retry)",
+          "business_impact": "Workflow progress",
+          "selector": "page.getByRole('link', { name: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('link', { name: /\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc/ })",
+              "strategy": "role_name_regex",
+              "confidence": 95,
+              "is_unique": false
+            },
+            {
+              "selector": "page.locator('[class*=\"Menu\"]').getByRole('link', { name: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' })",
+              "strategy": "portal_role_name",
+              "confidence": 92,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": null,
+          "page_context": {
+            "suggested_page_class": "HomePage",
+            "page_url_pattern": "/"
+          },
+          "method_context": {
+            "suggested_method_name": "clickStartWorkflowLinkRetry",
+            "action_type": "click"
+          }
+        }
+      ],
+      "expected_results": [
+        "User is able to reach the workflow initiation page",
+        "Workflow initiation can be retried if the first attempt fails"
+      ],
+      "edge_cases_to_test": [
+        "Slow network conditions during navigation",
+        "Workflow initiation link not visible or clickable",
+        "Navigation failure or unexpected redirects"
+      ],
+      "data_requirements": [
+        "Accessible homepage",
+        "Visible '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' link"
+      ],
+      "prerequisites": [
+        "Site accessible"
+      ]
+    }
+  ],
+  "site_url": "https://www.mortgage.leumi.co.il",
+  "test_name": "w01_mortgage_1",
+  "login_mechanisms": [
+    "general_interaction"
+  ],
+  "login_completion_state": "successful",
+  "analysis_timestamp": "2026-04-27T06:15:28.066893",
+  "auth_required": false,
+  "starting_url": null,
+  "workflow_id": "WF001"
+}
