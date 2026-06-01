@@ -1,0 +1,121 @@
+{
+  "metadata_version": "1.0",
+  "created_at": "2026-06-01T18:55:14.575610",
+  "last_updated": "2026-06-01T18:58:17.839059",
+  "output_dir": "RoostGPT/ui-test/78c3838a-b224-4e20-b664-e86a0f9fa56b/source/roostTest/generated_tests/www.mortgage.leumi.co.il/playwright_tests/www.mortgage.leumi.co.il/playwright_tests",
+  "site_url": "https://www.mortgage.leumi.co.il",
+  "pom_files": [
+    {
+      "url": "",
+      "file_name": "HomePage.js",
+      "file_path": "pom_tests/pom/HomePage.js"
+    },
+    {
+      "url": "",
+      "file_name": "MortgageStartPage.js",
+      "file_path": "pom_tests/pom/MortgageStartPage.js"
+    }
+  ],
+  "Login_File": {
+    "name": null,
+    "path": null,
+    "hash": null,
+    "agent_workflow_completed": false,
+    "agent_workflow_file_path": null,
+    "agent_interaction_file_path": null,
+    "agent_activity_summary": null,
+    "agent_activity_error": null,
+    "agent_activity_outcome": null,
+    "agent_recommendation": null,
+    "agent_completion_level": null,
+    "agent_steps_completed": null,
+    "execution_flow_file_path": null,
+    "systematic_selectors_file_path": null,
+    "scenario_name": null,
+    "scenario_file_path": null,
+    "test_generated": false,
+    "test_generation_error": null,
+    "test_file_path": null,
+    "test_executed_success": null,
+    "test_execution_error": null,
+    "pom_test_name": null,
+    "pom_test_file_path": null,
+    "pom_test_executed_success": null,
+    "pom_test_execution_error": null,
+    "pom_files": null
+  },
+  "Workflows": [
+    {
+      "workflow_id": "WF001",
+      "title": "Primary Business Workflow",
+      "goal": "Verify users can initiate the mortgage workflow",
+      "feature_area": "Mortgage application and information portal",
+      "priority": "high",
+      "starting_hint": "",
+      "discovery_source": "user_scenario",
+      "source_file": "/var/tmp/Roost/RoostGPT/ui-test/78c3838a-b224-4e20-b664-e86a0f9fa56b/mortgage (1).txt",
+      "source_file_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "worker_completed": true,
+      "worker_result": "success",
+      "linked_scenario_name": "w01_mortgage_1",
+      "error": null,
+      "scenario_name": "w01_mortgage_1",
+      "scenario_file_path": "generated_tests/www.mortgage.leumi.co.il/playwright_tests/www.mortgage.leumi.co.il/playwright_tests/scenarios/WF001_mortgage_1.json",
+      "scenario_summary_file_path": "generated_tests/www.mortgage.leumi.co.il/playwright_tests/www.mortgage.leumi.co.il/playwright_tests/scenarios/summaries/WF001_mortgage_1.md",
+      "report_pdf_file_path": "generated_tests/www.mortgage.leumi.co.il/playwright_tests/www.mortgage.leumi.co.il/playwright_tests/scenarios/reports/WF001_mortgage_1.pdf",
+      "feature_file_path": null,
+      "feature_file_name": null,
+      "agent_workflow_file_path": "/var/tmp/Roost/RoostGPT/ui-test/78c3838a-b224-4e20-b664-e86a0f9fa56b/temp_info/www.mortgage.leumi.co.il/extracted_data/execution_flow_WF001_mortgage_1.json",
+      "agent_workflow_completed": false,
+      "scenario_analysis_result_file_path": null,
+      "agent_activity_summary": [
+        "The agent initiated the mortgage workflow by navigating to the Leumi mortgage site and attempting to start the process via the 'בואו נתחיל' (Let's Start) button. The agent successfully located and interacted with the button twice, retrying the workflow after encountering a blank page. Despite these efforts, the workflow could not progress beyond the initial step due to a persistent hard blocker, resulting in partial completion of the scenario."
+      ],
+      "agent_activity_error": [
+        "At Step 5, the agent encountered a critical issue: after clicking the 'בואו נתחיל' button, the resulting page was blank, preventing further progress. The agent attempted recovery by retrying the navigation and repeating the button interaction (Steps 3 and 4), but the issue persisted. No further recovery was possible due to the hard blocker."
+      ],
+      "agent_activity_outcome": [
+        "The agent was unable to achieve the final goal of initiating the mortgage workflow. The scenario was only partially completed, as the agent successfully navigated and interacted with the required elements but was blocked by a blank page after starting the workflow."
+      ],
+      "agent_recommendation": "Investigate the blank page issue after clicking the 'בואו נתחיל' button. Review application logs, network responses, and browser console errors for potential causes. If the issue is reproducible, escalate to development for resolution. Consider adding automated checks for page load and content visibility to catch similar blockers early.",
+      "agent_completion_level": "partial",
+      "agent_steps_completed": 5,
+      "visited_urls": [
+        "https://mortgage.leumi.co.il/minisite/mortgage",
+        "https://www.mortgage.leumi.co.il",
+        "https://www.mortgage.leumi.co.il/"
+      ],
+      "execution_flow_file_path": null,
+      "test_generated": true,
+      "test_generation_error": null,
+      "test_name": null,
+      "test_file_path": null,
+      "test_executed_success": null,
+      "test_execution_error": null,
+      "pom_test_name": "w01_mortgage_1_pom.noauth.spec.js",
+      "pom_test_file_path": "generated_tests/www.mortgage.leumi.co.il/playwright_tests/www.mortgage.leumi.co.il/playwright_tests/pom_tests/w01_mortgage_1_pom.noauth.spec.js",
+      "pom_test_executed_success": null,
+      "pom_test_execution_error": null,
+      "pom_files": [
+        {
+          "url": "",
+          "file_name": "HomePage.js",
+          "file_path": "pom_tests/pom/HomePage.js"
+        },
+        {
+          "url": "",
+          "file_name": "MortgageStartPage.js",
+          "file_path": "pom_tests/pom/MortgageStartPage.js"
+        }
+      ],
+      "test_steps": [
+        "Load homepage",
+        "Click the 'בואו נתחיל' button to initiate the mortgage workflow"
+      ],
+      "video_recording_path": "/var/tmp/Roost/RoostGPT/ui-test/78c3838a-b224-4e20-b664-e86a0f9fa56b/temp_info/www.mortgage.leumi.co.il/extracted_data/recordings/WF001_a2/06a1dd5d-2aef-7c12-8000-37270012fe59.mp4"
+    }
+  ],
+  "explore_focus_areas": [],
+  "Imported_Test_Coverage": null,
+  "Token_Usage": null
+}
